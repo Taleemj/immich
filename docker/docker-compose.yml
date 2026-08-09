@@ -20,7 +20,18 @@ services:
       # Do not edit the next line. If you want to change the media storage location on your system, edit the value of UPLOAD_LOCATION in the .env file
       - ${UPLOAD_LOCATION}:/data
       - /etc/localtime:/etc/localtime:ro
-      - ../web/static:/build/www
+      # Custom Abantu Photos assets & manifest
+      - ../web/static/favicon.ico:/build/www/favicon.ico
+      - ../web/static/favicon.png:/build/www/favicon.png
+      - ../web/static/favicon-16.png:/build/www/favicon-16.png
+      - ../web/static/favicon-32.png:/build/www/favicon-32.png
+      - ../web/static/favicon-48.png:/build/www/favicon-48.png
+      - ../web/static/favicon-96.png:/build/www/favicon-96.png
+      - ../web/static/favicon-144.png:/build/www/favicon-144.png
+      - ../web/static/apple-icon-180.png:/build/www/apple-icon-180.png
+      - ../web/static/manifest-icon-192.maskable.png:/build/www/manifest-icon-192.maskable.png
+      - ../web/static/manifest-icon-512.maskable.png:/build/www/manifest-icon-512.maskable.png
+      - ../web/static/manifest.json:/build/www/manifest.json
     env_file:
       - .env
     ports:
