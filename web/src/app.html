@@ -27,6 +27,19 @@
       } catch {
         // noop
       }
+
+      // Auto-override browser tab title to Abantu Photos
+      try {
+        const fixTitle = () => {
+          if (document.title && document.title.includes('Immich')) {
+            document.title = document.title.replace(/Immich/g, 'Abantu Photos');
+          }
+        };
+        fixTitle();
+        new MutationObserver(fixTitle).observe(document.head, { subtree: true, characterData: true, childList: true });
+      } catch {
+        // noop
+      }
     </script>
 
     %sveltekit.head%
