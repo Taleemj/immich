@@ -32,6 +32,7 @@ services:
       - ../web/static/manifest-icon-192.maskable.png:/build/www/manifest-icon-192.maskable.png
       - ../web/static/manifest-icon-512.maskable.png:/build/www/manifest-icon-512.maskable.png
       - ../web/static/manifest.json:/build/www/manifest.json
+      - ../web/static/custom.css:/build/www/custom.css
     env_file:
       - .env
     ports:
