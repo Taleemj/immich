@@ -1,0 +1,27 @@
+/* Abantu Photos Custom CSS Overrides for Immich Web UI */
+
+/* Replace Immich logo images and SVG brand marks with Abantu Photos logo */
+img[alt="Immich logo"],
+img[alt="Immich Logo"],
+img[alt="logo"],
+a[href="/photos"] img,
+a[href="/"] img {
+  content: url('/favicon.png') !important;
+  max-height: 36px !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+/* Page Stencil Loading Animation Logo */
+#stencil svg {
+  display: none !important;
+}
+
+#stencil::before {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 80px;
+  background: url('/favicon.png') no-repeat center center;
+  background-size: contain;
+}

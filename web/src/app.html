@@ -6,6 +6,11 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="application-name" content="Abantu Photos" />
+    <meta name="apple-mobile-web-app-title" content="Abantu Photos" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -24,6 +29,19 @@
           document.documentElement.classList.remove('dark');
           document.documentElement.classList.add('light');
         }
+      } catch {
+        // noop
+      }
+
+      // Auto-override browser tab title to Abantu Photos
+      try {
+        const fixTitle = () => {
+          if (document.title && document.title.includes('Immich')) {
+            document.title = document.title.replace(/Immich/g, 'Abantu Photos');
+          }
+        };
+        fixTitle();
+        new MutationObserver(fixTitle).observe(document.head, { subtree: true, characterData: true, childList: true });
       } catch {
         // noop
       }
@@ -85,7 +103,7 @@
   </head>
 
   <noscript style="position: absolute; top: 0px; z-index: 1000; color: black; background-color: white">
-    To use Immich, you must enable JavaScript or use a JavaScript compatible browser.
+    To use Abantu Photos, you must enable JavaScript or use a JavaScript compatible browser.
   </noscript>
 
   <body class="bg-light text-dark">

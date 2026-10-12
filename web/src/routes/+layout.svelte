@@ -235,8 +235,12 @@
 <VersionAnnouncement />
 
 <svelte:head>
-  <title>{page.data.meta?.title || 'Web'} - Immich</title>
+  <title>{page.data.meta?.title || 'Photos'} - Abantu Photos</title>
   <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
+  <meta name="application-name" content="Abantu Photos" />
+  <meta name="apple-mobile-web-app-title" content="Abantu Photos" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
   <meta name="theme-color" content="white" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="black" media="(prefers-color-scheme: dark)" />
 
