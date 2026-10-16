@@ -17,8 +17,6 @@
     data: {
       meta: {
         title: string;
-        description?: string;
-        imageUrl?: string;
       };
 
       sharedLink?: SharedLinkResponseDto;
@@ -32,7 +30,7 @@
   const { data }: Props = $props();
 
   let { sharedLink, passwordRequired, key, slug, meta } = $state(data);
-  let { title, description } = $state(meta);
+  let { title } = $state(meta);
   let isOwned = $derived(authManager.authenticated && authManager.user.id === sharedLink?.userId);
   let password = $state('');
 
@@ -71,7 +69,6 @@
 
 <svelte:head>
   <title>{title}</title>
-  <meta name="description" content={description} />
 </svelte:head>
 {#if passwordRequired}
   <main
